@@ -1,22 +1,30 @@
-import { TaskPageComponent } from './modules/task/page/task-page.component';
+// import { TaskPageComponent } from './modules/task/page/task-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from '@modules/auth/page/login-page.component';
+// import { LoginPageComponent } from '@modules/auth/page/login-page.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: LoginPageComponent
+    path: 'auth',
+    loadChildren: () => import('@modules/auth/auth.module').then(m=>m.AuthModule) // This is a lazy loading
   },
   {
-    path:'task',
-    component: TaskPageComponent
-  },
-  {
-    path: '**', // Routes that are not mapped
-    // component: LoginPageComponent,
-    redirectTo: '/task' // to redirect the page to the specified url
+    path: 'task',
+    loadChildren: () => import('@modules/task/task.module').then(m=>m.TaskModule) // This is a lazy loading
   }
+  // {
+  //   path:'',
+  //   component: LoginPageComponent
+  // },
+  // {
+  //   path:'task',
+  //   component: TaskPageComponent
+  // },
+  // {
+  //   path: '**', // Routes that are not mapped
+  //   // component: LoginPageComponent,
+  //   redirectTo: '/task' // to redirect the page to the specified url
+  // }
 ];
 
 @NgModule({
