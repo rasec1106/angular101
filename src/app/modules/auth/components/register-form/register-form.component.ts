@@ -16,12 +16,33 @@ export class RegisterFormComponent implements OnInit {
     this.registerForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(3)])
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      aboutMe: new FormControl('', [Validators.required, Validators.minLength(3)])
     },
     {
       validators: passwordMatchValidator
     });
+  }
+
+  testLoaded():void{
+    const mockData = {
+      email: 'test@test.com',
+      name: 'Cesar',
+      lastName: 'Herrera',
+      phone: '5555555',
+      aboutMe: 'Hello, im a frontend developer'
+    }
+
+    this.registerForm.setValue(mockData); // to set 
+  }
+
+  testUploaded():void{
+    const mockData = {
+      phone: '1111111'
+    }
+
+    this.registerForm.patchValue(mockData); // to update only the attributes of the object
   }
 }
   
