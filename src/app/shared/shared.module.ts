@@ -13,6 +13,9 @@ import { ReplaceSpacePipe } from './pipes/replace-space.pipe';
   ],
   exports: [
     ReplaceSpacePipe
+  ],
+  providers: [
+    ReplaceSpacePipe
   ]
 })
 export class SharedModule { }
