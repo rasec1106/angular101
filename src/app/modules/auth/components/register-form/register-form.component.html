@@ -3,7 +3,7 @@
         <i class="logo-icon uil uil-apps"></i>
     </div>
 
-    <pre>{{registerForm.value | json}}</pre>
+    <pre>{{registerForm.value | json}} {{registerForm.pending | json}}</pre>
     <div><button class="btn-primary" (click)="testLoaded()">Cargar data</button></div>
     <div><button class="btn-primary" (click)="testUploaded()">Actualizar data</button></div>
     <form [formGroup]="registerForm"  class="form d-flex">
