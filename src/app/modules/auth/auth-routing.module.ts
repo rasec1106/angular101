@@ -1,3 +1,4 @@
+import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './page/login-page.component';
@@ -9,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: LoginPageComponent
+    component: RegisterFormComponent
   }
 ];
 
